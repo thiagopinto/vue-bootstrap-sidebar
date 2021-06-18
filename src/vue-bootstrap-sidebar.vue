@@ -3,8 +3,11 @@
     <!-- Sidebar -->
     <nav
       id="sidebar"
-      class="vue-bootstrap-sidebar default-theme"
-      :class="[ theme ] && [ show ? 'sidebar-visible' : 'sidebar-hidden' ]"
+      :class="
+        `vue-bootstrap-sidebar default-theme  ${[theme] && [
+          show ? 'sidebar-visible' : 'sidebar-hidden'
+        ]} ${align}`
+      "
     >
       <!-- eslint-disable vue/no-v-html -->
       <div
@@ -21,12 +24,13 @@
                 :to="link.href"
                 variant="info"
                 class="btn sidebar-menu-item"
+                :class="`${align}`"
                 :squared="true"
               >
                 <div class="fa-icon">
-                  <component 
-                    v-if="link.faIcon" 
-                    :is="'font-awesome-icon'" 
+                  <component
+                    v-if="link.faIcon"
+                    :is="'font-awesome-icon'"
                     :icon="link.faIcon"
                   />
                 </div>
@@ -37,20 +41,19 @@
             </b-list-group-item>
           </template>
           <template v-else>
-            <b-list-group-item
-              :key="index"
-            >
+            <b-list-group-item :key="index">
               <b-button
                 v-b-toggle="`accordion-${index + 10}`"
                 block
                 href="#"
                 variant="info"
                 class="sidebar-menu-item dropdown-toggle"
+                :class="`${align}`"
               >
                 <div class="fa-icon">
-                  <component 
-                    v-if="link.faIcon" 
-                    :is="'font-awesome-icon'" 
+                  <component
+                    v-if="link.faIcon"
+                    :is="'font-awesome-icon'"
                     :icon="link.faIcon"
                   />
                 </div>
@@ -74,12 +77,13 @@
                     block
                     variant="primary"
                     class="sidebar-menu-item child-level-1"
+                    :class="`${align}`"
                     :to="child.href"
                   >
                     <div class="fa-icon">
-                      <component 
-                        v-if="child.faIcon" 
-                        :is="'font-awesome-icon'" 
+                      <component
+                        v-if="child.faIcon"
+                        :is="'font-awesome-icon'"
                         :icon="child.faIcon"
                       />
                     </div>
@@ -92,35 +96,36 @@
             </b-collapse>
           </template>
         </template>
-      </b-list-group> <!--/ .items-wrapper -->
+      </b-list-group>
+      <!--/ .items-wrapper -->
       <HamburgerButton
         id="sidebarButton"
         class="sidebar-button"
         :is-hamburger="!initialShow"
-        :class="[ show ? 'visible' : 'hidden' ]"
+        :class="[show ? 'visible' : 'hidden']"
         @click="onButtonClick"
       />
     </nav>
     <div
       id="navbar"
-      :class="[ show ? 'sidebar' : 'no-sidebar' ]"
+      :class="[show ? 'sidebar' : 'no-sidebar']"
     >
       <slot name="navbar" />
     </div>
     <!-- Hamburger Menu -->
     <div
       id="content"
-      :class="[ show ? 'sidebar' : 'no-sidebar' ]"
+      :class="[show ? 'sidebar' : 'no-sidebar']"
     >
       <slot name="content" />
     </div>
   </div>
 </template>
 <script>
-import HamburgerButton from '@jurajkavka/vue-hamburger-button'
+import HamburgerButton from "@jurajkavka/vue-hamburger-button";
 
 export default {
-  name: 'BootstrapSidebar',
+  name: "BootstrapSidebar",
   components: {
     HamburgerButton
   },
@@ -135,27 +140,30 @@ export default {
     },
     theme: {
       type: String,
-      default: 'default-theme'
+      default: "default-theme"
     },
     header: {
       type: String,
-      default: 'Sidebar'
+      default: "Sidebar"
+    },
+    align: {
+      type: String,
+      default: "left"
     }
   },
-  data () {
+  data() {
     return {
       show: this.initialShow
-    }
+    };
   },
   methods: {
-    onButtonClick () {
-      this.show = !this.show
-      this.$emit('sidebarChanged', this.show)
+    onButtonClick() {
+      this.show = !this.show;
+      this.$emit("sidebarChanged", this.show);
     }
-
   }
-}
+};
 </script>
 <style lang="scss">
-@import 'node_modules/@jurajkavka/vue-hamburger-button/src/scss/default-theme.scss';
+@import "node_modules/@jurajkavka/vue-hamburger-button/src/scss/default-theme.scss";
 </style>

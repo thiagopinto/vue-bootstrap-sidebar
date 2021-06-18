@@ -41,6 +41,7 @@ export default Vue.extend({
       :links="links"
       :header="header"
       :fa="true"
+      align="right"
       @sidebarChanged="onSidebarChanged"
     >
       <template v-slot:navbar>
