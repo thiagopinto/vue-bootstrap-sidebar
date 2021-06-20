@@ -11,9 +11,18 @@
     >
       <!-- eslint-disable vue/no-v-html -->
       <div
+        v-if="header"
         class="sidebar-header"
         v-html="header"
-      />
+      >
+      </div>
+      <div
+        v-else
+        class="sidebar-header"
+        @click="onButtonClick"
+      >
+        <slot name="logo-mini" />
+      </div>
       <!-- eslint-enable -->
       <b-list-group class="items-wrapper">
         <template v-for="(link, index) in links">
@@ -108,14 +117,14 @@
     </nav>
     <div
       id="navbar"
-      :class="[show ? 'sidebar' : 'no-sidebar']"
+      :class="`${[show ? 'sidebar' : 'no-sidebar']} ${align}`"
     >
       <slot name="navbar" />
     </div>
     <!-- Hamburger Menu -->
     <div
       id="content"
-      :class="[show ? 'sidebar' : 'no-sidebar']"
+      :class="`${[show ? 'sidebar' : 'no-sidebar']} ${align}`"
     >
       <slot name="content" />
     </div>
@@ -144,7 +153,7 @@ export default {
     },
     header: {
       type: String,
-      default: "Sidebar"
+      default: ""
     },
     align: {
       type: String,
@@ -159,7 +168,7 @@ export default {
   methods: {
     onButtonClick() {
       this.show = !this.show;
-      this.$emit("sidebarChanged", this.show);
+      this.$emit("sidebar-changed", this.show);
     }
   }
 };

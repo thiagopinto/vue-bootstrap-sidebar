@@ -9,6 +9,7 @@ export default Vue.extend({
   },
   data () {
     return {
+      logoMini: require("@/assets/img/logo_bootstrap_vue.png"),
       initialShow: true,
       header: '<h3>Sidebar</h3>',
       links: [
@@ -39,11 +40,19 @@ export default Vue.extend({
     <BootstrapSidebar 
       :initial-show="initialShow" 
       :links="links"
-      :header="header"
       :fa="true"
-      align="right"
+      align="left"
       @sidebarChanged="onSidebarChanged"
     >
+      <template v-slot:logo-mini>
+        <div class="logo-mini">
+            <b-img :src="logoMini" rounded="circle" alt="Circle image"></b-img>
+            <div class="logo-title">
+              <h2>Sidebar</h2>
+            </div>
+            
+        </div>
+      </template>
       <template v-slot:navbar>
         <b-navbar 
           id="mainNavbar" 
@@ -72,5 +81,5 @@ export default Vue.extend({
 <style lang="scss">
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
-@import './scss/default-theme';
+@import './assets/scss/default-theme';
 </style>
