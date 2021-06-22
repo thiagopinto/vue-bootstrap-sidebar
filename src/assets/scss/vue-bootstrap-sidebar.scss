@@ -195,16 +195,14 @@
 
       .sidebar-menu-item {
         text-align: right;
-        padding-right: 20px;
+        padding-right: 0;
 
         .fa-icon {
           display: inline-block;
           text-align: center;
-          width: 40px !important;
+          width: 25px !important;
           position: fixed;
           right: 10px;
-          margin-left: 10px !important;
-          margin-right: 10px !important;
         }
 
         .link-name {
@@ -234,7 +232,6 @@
     .sidebar-button {
       position: fixed;
       top: 10px;
-      right: 10px;
       transition: all 0.3s;
 
       &.visible {
@@ -331,27 +328,35 @@
   }
 
   .vue-bootstrap-sidebar {
+    transition: all 0.3s;
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    z-index: 1031;
+    position: fixed;
+    top: 0;
+
     &.left {
-
-      .items-wrapper {
-      }
-
-      .list-group {
-      }
-
     }
-
     &.sidebar-hidden {
-      margin-left: 0px;
-      min-width: 80px;
-      max-width: 80px;
+      margin-left: 0;
+      left: 0;
 
       .sidebar-header {
         padding: 10px;
 
         .logo-mini {
+          margin: 0 auto;
+          display: block;
+          width: 250px;
+
           img {
-            margin-top: 5px;
+            margin: 5px;
+            display: inline-block;
+            width: 40px;
+            margin-top: -12px;
+            margin-left: 10px;
+            margin-right: 10px;
           }
 
           .logo-title {
@@ -360,21 +365,156 @@
         }
       }
 
+      .items-wrapper {
+      }
+
+      .list-group {
+      }
+
       .list-group-item {
+        padding: 0 !important;
+        border: none;
+
+        .dropdown-toggle::before {
+          display: none;
+        }
 
         .dropdown-toggle::after {
+          position: absolute;
+          right: 20px;
+          margin-top: 10px;
+          display: inline-block;
+          margin-left: 0.255em;
+          vertical-align: 0.255em;
+          content: "";
+          border-top: 0.3em solid;
+          border-right: 0.3em solid transparent;
+          border-bottom: 0;
+          border-left: 0.3em solid transparent;
         }
 
         .sidebar-menu-item {
           text-align: left;
           padding-left: 10px;
-  
+
           .fa-icon {
             display: inline-block;
             text-align: center;
             width: 40px !important;
-            margin-left: 8px !important;
-            margin-right: 12px !important;
+            margin-left: 10px !important;
+            margin-right: 10px !important;
+            left: 10px;
+          }
+
+          .link-name {
+            display: inline;
+            text-align: left;
+          }
+
+          &.child-level-1 {
+            padding-left: 45px !important;
+
+            .fa-icon {
+              display: inline-block;
+              text-align: center;
+              position: fixed;
+              left: 25px;
+            }
+
+            .link-name {
+              display: inline;
+              text-align: left;
+              margin-left: 25px;
+            }
+          }
+        }
+      }
+
+      .sidebar-button {
+        position: fixed;
+        top: 10px;
+        left: 200px;
+        transition: all 0.3s;
+
+        &.visible {
+          left: 200px;
+        }
+
+        &.hidden {
+          left: -40px;
+        }
+      }
+    }
+
+    &.sidebar-visible {
+      box-shadow: 1px;
+    }
+  }
+
+  .vue-bootstrap-sidebar {
+    &.right {
+    }
+    &.sidebar-hidden {
+      min-width: 50px;
+      max-width: 50px;
+      margin-right: 0;
+      right: 0;
+
+      .sidebar-header {
+        padding-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+
+        .logo-mini {
+          margin: 0 auto;
+          display: block;
+          width: 50px;
+
+          img {
+            display: inline-block;
+            width: 40px;
+            margin-top: -3px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+
+          .logo-title {
+            display: none;
+          }
+        }
+      }
+
+      .items-wrapper {
+      }
+
+      .list-group {
+        padding-top: 4px;
+      }
+
+      .list-group-item {
+        padding: 0 !important;
+        border: none;
+
+        .dropdown-toggle::before {
+          left: 5px;
+        }
+
+        .dropdown-toggle::after {
+          display: none;
+        }
+
+        .sidebar-menu-item {
+          text-align: right;
+          padding-right: 0;
+          min-height: 36px;
+
+          .fa-icon {
+            display: inline-block;
+            text-align: center;
+            width: 25px !important;
+            position: fixed;
+            right: 10px;
+            min-height: 20px;
           }
 
           .link-name {
@@ -382,38 +522,36 @@
           }
 
           &.child-level-1 {
-            height: 26px;
+            padding-left: 30px !important;
+            min-height: 36px;
 
             .fa-icon {
-              left: 5px;
-
+              display: inline-block;
+              text-align: center;
+              width: 40px;
+              right: 20px;
             }
 
             .link-name {
               display: none;
-
-
             }
           }
         }
       }
 
       .sidebar-button {
-        display: none;
-
+        position: fixed;
+        top: 10px;
+        transition: all 0.3s;
 
         &.visible {
-          left: 200px;
+          right: 10px;
         }
 
         &.hidden {
-          left: 0;
+          right: -30px;
         }
       }
-    }
-
-    &.sidebar-visible {
-      box-shadow: 1px;
     }
   }
 }
