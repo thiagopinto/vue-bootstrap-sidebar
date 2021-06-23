@@ -88,7 +88,7 @@
           .fa-icon {
             display: inline-block;
             text-align: center;
-            position: fixed;
+            position: absolute;
             left: 25px;
           }
 
@@ -217,13 +217,14 @@
           .fa-icon {
             display: inline-block;
             text-align: center;
-            width: 40px;
+            position: absolute;
             right: 25px;
           }
 
           .link-name {
             display: inline;
             text-align: right;
+            margin-left: 25px;
           }
         }
       }
@@ -323,40 +324,36 @@
 
 // Small devices (landscape phones, less than 768px)
 @media (min-width: 576px) and (max-width: 767.98px) {
+}
+
+
+@media (min-width: 576px) and (max-width: 991.98px) {
   body {
     background-color: blue;
   }
 
   .vue-bootstrap-sidebar {
-    transition: all 0.3s;
-    min-width: 250px;
-    max-width: 250px;
-    height: 100vh;
-    z-index: 1031;
-    position: fixed;
-    top: 0;
-
-    &.left {
-    }
-    &.sidebar-hidden {
+    &.left.sidebar-hidden {
+      min-width: 80px;
+      max-width: 80px;
       margin-left: 0;
       left: 0;
 
       .sidebar-header {
-        padding: 10px;
+        padding-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
 
         .logo-mini {
           margin: 0 auto;
           display: block;
-          width: 250px;
+          width: 80px;
 
           img {
-            margin: 5px;
-            display: inline-block;
-            width: 40px;
-            margin-top: -12px;
-            margin-left: 10px;
-            margin-right: 10px;
+            display: block;
+            margin-top: -1px;
+            margin-left: auto;
+            margin-right: auto;
           }
 
           .logo-title {
@@ -369,62 +366,50 @@
       }
 
       .list-group {
+        margin: 0 auto;
       }
 
       .list-group-item {
         padding: 0 !important;
         border: none;
 
-        .dropdown-toggle::before {
-          display: none;
-        }
-
         .dropdown-toggle::after {
-          position: absolute;
-          right: 20px;
-          margin-top: 10px;
-          display: inline-block;
-          margin-left: 0.255em;
-          vertical-align: 0.255em;
-          content: "";
-          border-top: 0.3em solid;
-          border-right: 0.3em solid transparent;
-          border-bottom: 0;
-          border-left: 0.3em solid transparent;
         }
 
         .sidebar-menu-item {
           text-align: left;
-          padding-left: 10px;
+          padding-left: 0;
+          min-height: 36px;
 
           .fa-icon {
+            margin: 0 auto !important;
             display: inline-block;
             text-align: center;
-            width: 40px !important;
-            margin-left: 10px !important;
-            margin-right: 10px !important;
-            left: 10px;
+            width: 25px !important;
+            position: absolute;
+            left: 5px;
+            right: 0;
+
+            min-height: 20px;
           }
 
           .link-name {
-            display: inline;
-            text-align: left;
+            display: none;
           }
 
           &.child-level-1 {
-            padding-left: 45px !important;
+            padding-left: 30px !important;
+            min-height: 36px;
 
             .fa-icon {
               display: inline-block;
               text-align: center;
-              position: fixed;
-              left: 25px;
+              position: absolute;
+              left: 20px;
             }
 
             .link-name {
-              display: inline;
-              text-align: left;
-              margin-left: 25px;
+              display: none;
             }
           }
         }
@@ -445,18 +430,12 @@
         }
       }
     }
-
-    &.sidebar-visible {
-      box-shadow: 1px;
-    }
   }
 
   .vue-bootstrap-sidebar {
-    &.right {
-    }
-    &.sidebar-hidden {
-      min-width: 50px;
-      max-width: 50px;
+    &.right.sidebar-hidden {
+      min-width: 80px;
+      max-width: 80px;
       margin-right: 0;
       right: 0;
 
@@ -468,12 +447,11 @@
         .logo-mini {
           margin: 0 auto;
           display: block;
-          width: 50px;
+          width: 80px;
 
           img {
-            display: inline-block;
-            width: 40px;
-            margin-top: -3px;
+            display: block;
+            margin-top: -1px;
             margin-left: auto;
             margin-right: auto;
           }
@@ -488,7 +466,7 @@
       }
 
       .list-group {
-        padding-top: 4px;
+        margin: 0 auto;
       }
 
       .list-group-item {
@@ -496,11 +474,6 @@
         border: none;
 
         .dropdown-toggle::before {
-          left: 5px;
-        }
-
-        .dropdown-toggle::after {
-          display: none;
         }
 
         .sidebar-menu-item {
@@ -509,11 +482,14 @@
           min-height: 36px;
 
           .fa-icon {
+            margin: 0 auto !important;
             display: inline-block;
             text-align: center;
             width: 25px !important;
-            position: fixed;
-            right: 10px;
+            position: absolute;
+            left: 5px;
+            right: 0;
+
             min-height: 20px;
           }
 
@@ -528,7 +504,7 @@
             .fa-icon {
               display: inline-block;
               text-align: center;
-              width: 40px;
+              position: absolute;
               right: 20px;
             }
 
@@ -549,9 +525,50 @@
         }
 
         &.hidden {
-          right: -30px;
+          right: -40px;
         }
       }
+    }
+  }
+
+  #navbar.left {
+    &.no-sidebar > nav {
+      padding-left: 85px;
+    }
+  }
+
+  #navbar.right {
+
+    &.no-sidebar > nav {
+      padding-left: 10px;
+    }
+  }
+
+  #content.left {
+    transition: all 0.3s;
+    padding-top: 20px;
+
+    &.sidebar {
+      margin-left: 250px;
+    }
+
+    &.no-sidebar {
+      margin: 0 auto;
+      left: 80px;
+      position: absolute;
+    }
+  }
+
+  #content.right {
+    transition: all 0.3s;
+    padding-top: 20px;
+
+    &.sidebar {
+      margin-right: 250px;
+    }
+
+    &.no-sidebar {
+      margin-left: -125px;
     }
   }
 }

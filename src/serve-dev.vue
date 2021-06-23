@@ -41,7 +41,7 @@ export default Vue.extend({
       :initial-show="initialShow" 
       :links="links"
       :fa="true"
-      align="left"
+      align="right"
       @sidebarChanged="onSidebarChanged"
     >
       <template v-slot:logo-mini>

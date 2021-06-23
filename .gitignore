@@ -113,3 +113,14 @@ dist
 lint.sh
 lint-scss.sh
 
+git config pull.rebase true
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
