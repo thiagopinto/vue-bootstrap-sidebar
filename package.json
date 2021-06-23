@@ -1,12 +1,12 @@
 {
-  "name": "vue-bootstrap-sidebar",
-  "version": "1.0.7",
-  "description": "Simple sidebar component for Vue applications build using bootstrap-vue",
-  "author": "Juraj Kavka <jurajkavka@gmail.com>",
+  "name": "vue-bootstrap-sidebar-custom",
+  "version": "1.0.8",
+  "description": "Sidebar component for Vue apps created using the project's bootstrap-vue fork vue-bootstrap-sidebar by Juraj Kavka",
+  "author": "Thiago Pinto Dias <thiagopinto.lx@gmail.com>",
   "license": "MIT",
-  "main": "dist/vue-bootstrap-sidebar.ssr.js",
-  "module": "dist/vue-bootstrap-sidebar.esm.js",
-  "unpkg": "dist/vue-bootstrap-sidebar.min.js",
+  "main": "dist/vue-bootstrap-sidebar-custom.ssr.js",
+  "module": "dist/vue-bootstrap-sidebar-custom.esm.js",
+  "unpkg": "dist/vue-bootstrap-sidebar-custom.min.js",
   "files": [
     "dist/*",
     "src/**/*.vue",
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/JurajKavka/vue-bootstrap-sidebar.git"
+    "url": "https://github.com/thiagopinto/vue-bootstrap-sidebar.git"
   },
   "keywords": [
     "vue",
@@ -29,7 +29,8 @@
     "sidebar-menu",
     "admin-sidebar",
     "bootstrap",
-    "bootstrap-vue"
+    "bootstrap-vue",
+    "nuxtjs"
   ],
   "scripts": {
     "serve": "vue-cli-service serve src/serve-dev.js",
