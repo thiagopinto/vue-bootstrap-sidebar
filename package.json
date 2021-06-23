@@ -1,6 +1,6 @@
 {
   "name": "vue-bootstrap-sidebar-custom",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Sidebar component for Vue apps created using the project's bootstrap-vue fork vue-bootstrap-sidebar by Juraj Kavka",
   "author": "Thiago Pinto Dias <thiagopinto.lx@gmail.com>",
   "license": "MIT",

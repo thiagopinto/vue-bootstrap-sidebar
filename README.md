@@ -7,7 +7,7 @@
 ## Preview
 For the preview just clone this repository and run *dev* server.
 ```
-git clone https://github.com/JurajKavka/vue-bootstrap-sidebar.git
+git clone https://github.com/thiagopinto/vue-bootstrap-sidebar.git
 ```
 ```
 cd vue-bootstrap-sidebar
@@ -38,7 +38,9 @@ yarn add vue-bootstrap-sidebar
 `BootstrapSidebar` component is a wrapper for a whole page with two named *slots*:
 
   - `navbar` - slot for your top *navbar* component
+  - `logo-mini` - slot for insert logo in header
   - `content` - slot for the entire *content* of your page
+  - `footer` - slot for your down *navbar* componet
 
 It is up to You, how Your top *navbar* component and *content* looks like. As we are using *bootstrap*, it is good if a whole webpage follows *bootstrap* patterns.
 
