@@ -26,7 +26,7 @@
       border: none;
 
       &:hover {
-        background-color: #f7f7f7;
+        background-color: $base-color
       }
 
       &:focus, &:active {
@@ -48,6 +48,7 @@
     margin-left: 10px;
 
     &:hover, &:focus, &:active, &:visited {
+      background-color: $base-color;
       color: $color;
       border: none;
       border-color: none;

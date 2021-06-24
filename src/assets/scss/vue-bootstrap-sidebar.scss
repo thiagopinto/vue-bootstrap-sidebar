@@ -45,7 +45,6 @@
 
     .list-group-item {
       padding: 0 !important;
-      border: none;
 
       .dropdown-toggle::before {
         display: none;
@@ -173,7 +172,6 @@
 
     .list-group-item {
       padding: 0 !important;
-      border: none;
 
       .dropdown-toggle::before {
         position: absolute;
@@ -370,8 +368,6 @@
       }
 
       .list-group-item {
-        padding: 0 !important;
-        border: none;
 
         .dropdown-toggle::after {
         }
@@ -470,8 +466,6 @@
       }
 
       .list-group-item {
-        padding: 0 !important;
-        border: none;
 
         .dropdown-toggle::before {
         }

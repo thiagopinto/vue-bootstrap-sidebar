@@ -3,7 +3,7 @@
     <!-- Sidebar -->
     <nav
       id="sidebar"
-      :class="`vue-bootstrap-sidebar default-theme  ${
+      :class="`vue-bootstrap-sidebar bg-light text-dark default-theme  ${
         [theme] && [show ? 'sidebar-visible' : 'sidebar-hidden']
       } ${align}`"
     >
@@ -15,6 +15,7 @@
       <!-- eslint-enable -->
       <b-list-group class="items-wrapper">
         <template v-for="(link, index) in links">
+
           <template v-if="link.href !== undefined">
             <b-list-group-item
               :key="index"
@@ -28,6 +29,7 @@
                 class="btn sidebar-menu-item"
                 :class="`${align}`"
                 :squared="true"
+                size="lg"
               >
                 <div class="fa-icon">
                   <component
@@ -42,6 +44,7 @@
               </b-button>
             </b-list-group-item>
           </template>
+
           <template v-else>
             <b-list-group-item
               :key="index"
@@ -53,8 +56,9 @@
                 block
                 href="#"
                 variant="info"
-                class="sidebar-menu-item dropdown-toggle"
+                class="sidebar-menu-item dropdown-toggle rounded-0"
                 :class="`${align}`"
+                size="lg"
               >
                 <div class="fa-icon">
                   <component
@@ -82,7 +86,7 @@
                   <b-button
                     block
                     variant="primary"
-                    class="sidebar-menu-item child-level-1"
+                    class="sidebar-menu-item rounded-0 child-level-1"
                     :class="`${align}`"
                     :to="child.href"
                   >
